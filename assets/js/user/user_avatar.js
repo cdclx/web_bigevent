@@ -21,6 +21,11 @@ $(function () {
     // 为文件选择框绑定 change 事件
     $('#file').on('change', function (e) {
         // console.log(e);
+        // 获取用户选择的文件
+        var filelist = e.target.files
+        if (filelist.length === 0) {
+            return layer.msg('请选择照片！')
+        }
         //1、拿到用户选择的文件
         var file = e.target.files[0]
         //2、将文件转化为路径
@@ -36,10 +41,10 @@ $(function () {
     $('#btnUpload').on('click', function () {
         //1、判断是不是选择了图片
         //获取用户选择的文件
-        var fileInput = $('#file').get(0).files[0]
-        if (!fileInput) {
-            return layer.msg('请选择图片！')
-        }
+        // var fileInput = $('#file').get(0).files[0]
+        // if (!fileInput) {
+        //     return layer.msg('请选择图片！')
+        // }
         //2、拿到用户裁剪之后的头像
         var dataURL = $image
             .cropper('getCroppedCanvas', {

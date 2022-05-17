@@ -1,0 +1,35 @@
+html,
+body{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 15px;
+    background-color: #dddfe1;
+}
+
+.layui-card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.layui-table,
+.layui-table th,
+.layui-table td {
+    text-align: center;
+    color: black;
+    font-family: '楷体';
+    font-size: 18px;
+}
+
+.layui-btn-xs{
+    font-size: 14px;
+}
+
+#form-add,#form-edit{
+    padding-top: 20px;
+    padding-right: 30px;
+}
+

@@ -34,6 +34,7 @@
 
                 <div class="layui-form-item layui-inline">
                     <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+                    <a href="javascript:;" class=fresh>刷新<i class="layui-icon layui-icon-refresh-3"></i></a>
                 </div>
             </form>
 
@@ -65,7 +66,6 @@
             </div>
         </div>
     </div>
-
     <!-- 模板引擎 -->
     <script type="text/html" id="tpl-table">
         {{each data}}
@@ -75,8 +75,8 @@
             <td>{{$value.pub_date|dataFormat}}</td>
             <td>{{$value.state}}</td>
             <td>
-                <button type="button" class="layui-btn layui-btn-normal layui-btn-xs">编辑</button>
-                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
+                <button type="button" class="layui-btn layui-btn-xs btn-edit" data-id="{{$value.Id}}">编辑</button>
+                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{$value.Id}}">删除</button>
             </td>
         </tr>
         {{/each}}
@@ -86,9 +86,43 @@
     <script type="text/html" id="tpl-cate">
         <option value="">所有分类</option>
         {{each data}}
-        <option value="{{$value.id}}">{{$value.name}}</option>
+        <option value="{{$value.Id}}">{{$value.name}}</option>
         {{/each}}
     </script>
+
+    <!-- 编辑分类的弹出层 -->
+    <script type="text/html" id="dialog-edit">
+                <form class="layui-form" id="form-edit" lay-filter="form-edit" style="height: 600px;">
+                    <!-- 隐藏域，保存id的值 -->
+                    <input type="hidden" name="Id">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">文章标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" lay-verify="required" placeholder="请输入文章标题" autocomplete="off"
+                                class="layui-input">
+                        </div>
+                    </div>
+                    <!-- <div class="layui-form-item">
+                        <label class="layui-form-label">分类名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" lay-verify="required" placeholder="请输入分类名称" autocomplete="off"
+                                class="layui-input">
+                        </div>
+                    </div> -->
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">发布状态</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="state" lay-verify="required" placeholder="请输入发布状态" autocomplete="off"
+                                class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
+                        </div>
+                    </div>
+                </form>
+            </script>
 
 
     <!-- 导入第三方的js脚本 -->

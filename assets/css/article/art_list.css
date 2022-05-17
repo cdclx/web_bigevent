@@ -1,0 +1,36 @@
+html,body{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 15px;
+    background-color: #f0f2f4;
+}
+
+.layui-table th,
+.layui-table td{
+    text-align: center;
+    font-size: 18px;
+    color:black;
+    font-family: '楷体';
+}
+
+.layui-btn-xs{
+    font-size: 14px;
+}
+
+.fresh{
+    line-height: 38px;
+    margin-left: 15px;
+}
+
+.layui-icon-refresh-3{
+    margin-left: 5px;
+}
+
+#form-add,
+#form-edit {
+    padding-top: 20px;
+    padding-right: 30px;
+}
